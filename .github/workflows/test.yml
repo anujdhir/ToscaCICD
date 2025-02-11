@@ -17,7 +17,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run automated tests
-        run: C:\Runners\CommandLine\tosca_execution_client.ps1 -toscaServerUrl "http://localhost" -events '["DevOpsDemo"]' -projectName "DevOps" -resultsFileName "results.xml"
+        run: C:\GitHub-Runner\tosca_execution_client.ps1 -toscaServerUrl "https://prdtos01.qbsa.local/" -events '["Aakash_Dex"]' -projectName "QBCC_Workspace" -resultsFileName "results.xml" -clientId "21489a0b-c163-4a62-b61e-501090c9506aMgAxADQAOAA5AGEAMABiAC0AYwAxADYAMwAtADQAYQA2ADIALQBiADYAMQBlAC0ANQAwADEAMAA5ADAAYwA5ADUAMAA2AGEAas/AmaXo8dBjGCZzwfsfnF0z8az7ptz9cukmcPbJMfOn+kE0HlhfXX6UNkJdMgKX" -clientSecret "21489a0b-c163-4a62-b61e-501090c9506aMgAxADQAOAA5AGEAMABiAC0AYwAxADYAMwAtADQAYQA2ADIALQBiADYAMQBlAC0ANQAwADEAMAA5ADAAYwA5ADUAMAA2AGEAR2g0XcYfnt/LynM1Sz8/u0zmOgblahN/eyl7SOeZu6RjiJS6SLZgCyzaRU6ule+NkQpLZ0b2E4+p5pkJ1btOiw+kkMu4RyZV2I1tpkw2GnIi3Jvn7pzO4usW6DOr+dK+"
         
    
   
@@ -25,5 +25,5 @@ jobs:
         uses: mikepenz/action-junit-report@v3
         if: success() || failure()
         with:
-          report_paths: 'C:\\Runners\\CommandLine\\results\\results.xml'
+          report_paths: 'C:\\GitHub-Runners\\results\\results.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
