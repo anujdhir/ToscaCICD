@@ -1,0 +1,29 @@
+name: Tosca CI/CD Demo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  
+  test:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+    
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run automated tests
+        run: C:\Runners\CommandLine\tosca_execution_client.ps1 -toscaServerUrl "http://localhost" -events '["DevOpsDemo"]' -projectName "DevOps" -resultsFileName "results.xml"
+        
+   
+  
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: success() || failure()
+        with:
+          report_paths: 'C:\\Runners\\CommandLine\\results\\results.xml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
