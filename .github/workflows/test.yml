@@ -1,4 +1,4 @@
-name: Tosca CI/CD Demo
+name: Tosca CI /CD Demo
 
 on:
   push:
